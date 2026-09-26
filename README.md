@@ -43,7 +43,7 @@ demonstrates:
 - **The `when` keyword** (additional requirement) — used as an expression
   to dispatch menu choices and as a tool for clean, readable branching.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/nBmWUCTlEvg)
 
 # Development Environment
 

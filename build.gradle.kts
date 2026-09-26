@@ -23,3 +23,15 @@ tasks.test { useJUnitPlatform() }
 tasks.named<JavaExec>("run") {
     standardInput = System.`in`
 }
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "com.edsarah.taskmanager.MainKt"
+    }
+    // Bundle Kotlin's standard library into the jar so `java -jar` works
+    from(configurations.runtimeClasspath.get().map {
+        if (it.isDirectory) it else zipTree(it)
+    }) {
+        exclude("META-INF/*.SF", "META-INF/*.DSA", "META-INF/*.RSA", "META-INF/*.MF")
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
